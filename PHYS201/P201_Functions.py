@@ -93,3 +93,11 @@ def linear_fit_plot_errors(xi,yi,x_low="",x_high="",labelstring="Linear Fit",lin
             # Takes the x and y values to make a trendline
             intercept,slope,dintercept,dslope = linear_fit_plot_errors_core(x_data_cut,y_data_cut,labelstring,linestring)
             return intercept,slope,dintercept,slope
+
+def set_dark_mode(dark_mode = True):
+    if (dark_mode):
+        from jupyterthemes import jtplot
+        jtplot.style(theme='monokai', context='notebook', ticks=True, grid=False)
+        linecolor = 'w'
+    else:
+        linecolor = 'k'
