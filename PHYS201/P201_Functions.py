@@ -70,13 +70,13 @@ def linear_fit_plot_errors_core(xi,yi,labelstring="Linear Fit",linestring="r-"):
     plt.plot(xi,lower,linestring2,linewidth=1)
     plt.plot(xi,upper,linestring2,linewidth=1)
 
-    return popt[1],perr[1],popt[0],perr[0]
+    return popt[0],popt[1],perr[0],perr[1]
 
 def linear_fit_plot_errors(xi,yi,x_low="",x_high="",labelstring="Linear Fit",linestring="r-"):
     if x_low=="":
         # Takes the x and y values to make a trendline
         intercept,slope,dintercept,dslope = linear_fit_plot_errors_core(xi,yi,labelstring,linestring)
-        return intercept,slope,dintercept,slope
+        return intercept,slope,dintercept,dslope
     else:
         if x_high=="":
             print ('Missing x_high parameter!!')
@@ -92,7 +92,7 @@ def linear_fit_plot_errors(xi,yi,x_low="",x_high="",labelstring="Linear Fit",lin
             y_data_cut = np.array(y_data_cut)
             # Takes the x and y values to make a trendline
             intercept,slope,dintercept,dslope = linear_fit_plot_errors_core(x_data_cut,y_data_cut,labelstring,linestring)
-            return intercept,slope,dintercept,slope
+            return intercept,slope,dintercept,dslope
 
 def set_dark_mode(dark_mode = True):
     if (dark_mode):
