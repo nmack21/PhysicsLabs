@@ -213,7 +213,7 @@ def quadratic_fit_plot_errors_core(xi,yi,sigmai,labelstring="Quadratic Fit",line
 def quadratic_fit_plot_errors(xi,yi,sigmai,plot_name,x_low="",x_high="",labelstring="Quadratic Fit",linestring="r-"):
     if x_low=="":
         # Takes the x and y values to make a trendline
-        a,b,c,da,db,dc = quadratic_fit_plot_core(xi,yi,sigmai,labelstring,linestring,plot_name)
+        a,b,c,da,db,dc = quadratic_fit_plot_errors_core(xi,yi,sigmai,labelstring,linestring,plot_name)
         return a,b,c,da,db,da
     else:
         if x_high=="":
@@ -232,7 +232,7 @@ def quadratic_fit_plot_errors(xi,yi,sigmai,plot_name,x_low="",x_high="",labelstr
             y_data_cut = np.array(y_data_cut)
             sigmai_cut = np.array(sigmai_cut)
             # Takes the x and y values to make a trendline
-            a,b,c,da,db,dc = quadratic_fit_plot_core(x_data_cut,y_data_cut,sigmai_cut,labelstring,linestring,plot_name)
+            a,b,c,da,db,dc = quadratic_fit_plot_errors_core(x_data_cut,y_data_cut,sigmai_cut,labelstring,linestring,plot_name)
             return a,b,c,da,db,dc
 
 
